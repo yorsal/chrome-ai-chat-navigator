@@ -31,8 +31,8 @@ The extension works by:
 The extension requires the following permissions:
 
 - **activeTab**: Allows the extension to interact with the currently active tab when you click the extension icon.
-- **scripting**: Enables the extension to inject content scripts into supported chat pages.
-- **storage**: This permission is declared but not actively used. We do not store any data.
+- **scripting**: no scripting.
+- **storage**: no data storage.
 - **host_permissions**: Allows the extension to access specific chat domains:
   - `https://chat.deepseek.com/*`
   - `https://chat.openai.com/*`
