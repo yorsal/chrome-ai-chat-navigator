@@ -16,6 +16,7 @@ A Chrome extension for DeepSeek, ChatGPT, and Gemini chat pages that helps you q
 - 🔍 Automatically detects conversation turns (DeepSeek `data-um-id`, ChatGPT `<article>`, Gemini `<user-query>/<model-response>`)
 - 📋 Lists every detected question in the popup
 - 🎯 Jumps to a selected question or answer with one click
+- ⌨️ Keyboard shortcuts: Press number keys 1-9 to quickly jump to corresponding questions
 - 🔄 Keeps the list in sync with live page updates
 - 💫 Provides smooth scrolling and highlight effects
 
@@ -124,6 +125,14 @@ Bundled output is generated in the `dist` directory.
 2. Click the extension icon in the browser toolbar
 3. Review the detected questions in the popup
 4. Select any question to jump to its position on the page instantly
+
+### Keyboard Shortcuts
+
+- On the chat page, press number keys **1-9** to quickly jump to the corresponding question
+  - Press `1` to jump to the 1st question
+  - Press `2` to jump to the 2nd question
+  - And so on...
+- Shortcuts only work when not focused on input fields to avoid interfering with typing
 
 ### Screenshot
 
