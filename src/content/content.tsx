@@ -159,6 +159,40 @@ function init(): void {
     })
   }
 
+  // 添加键盘快捷键监听器（数字键1-9跳转到对应问题）
+  function handleKeyPress(event: KeyboardEvent): void {
+    // 检查是否在输入框中（不应该响应快捷键）
+    const activeElement = document.activeElement
+    const isInputFocused =
+      activeElement &&
+      (activeElement.tagName === 'INPUT' ||
+        activeElement.tagName === 'TEXTAREA' ||
+        (activeElement instanceof HTMLElement && activeElement.isContentEditable) ||
+        activeElement.getAttribute('contenteditable') === 'true')
+
+    if (isInputFocused) {
+      return // 在输入框中时不响应快捷键
+    }
+
+    // 检查是否按下了数字键（1-9）
+    const key = event.key
+    if (key >= '1' && key <= '9') {
+      const questionIndex = parseInt(key, 10) - 1 // 转换为索引（0-based）
+
+      // 检查是否有足够的问题
+      if (questionIndex >= 0 && questionIndex < questions.length) {
+        const targetQuestion = questions[questionIndex]
+        if (targetQuestion && targetQuestion.anchorId) {
+          event.preventDefault() // 阻止默认行为
+          scrollToQuestion(targetQuestion.anchorId)
+        }
+      }
+    }
+  }
+
+  // 添加键盘事件监听器
+  document.addEventListener('keydown', handleKeyPress)
+
   // 监听来自 popup 的消息
   chrome.runtime.onMessage.addListener(
     (
